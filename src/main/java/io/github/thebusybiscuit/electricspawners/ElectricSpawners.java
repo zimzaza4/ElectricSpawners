@@ -36,7 +36,7 @@ public class ElectricSpawners extends JavaPlugin implements Listener, SlimefunAd
         }
 
         Category category = new Category(new NamespacedKey(this, "electric_spawners"), new CustomItem(SkullItem.fromHash("db6bd9727abb55d5415265789d4f2984781a343c68dcaf57f554a5e9aa1cd"), "&9Electric Spawners"));
-        Research research = new Research(new NamespacedKey(this, "electric_spawners"), 4820, "Powered Spawners", 30);
+        Research research = new Research(new NamespacedKey(this, "electric_spawners"), 4820, "动力刷怪笼", 30);
 
         for (String mob : cfg.getStringList("mobs")) {
             try {
@@ -44,10 +44,10 @@ public class ElectricSpawners extends JavaPlugin implements Listener, SlimefunAd
                 new ElectricSpawner(category, mob, type, research).register(this);
             }
             catch (IllegalArgumentException x) {
-                getLogger().log(Level.WARNING, "An Error has occured while adding an Electric Spawner for the (posibly outdated or invalid) EntityType \"{0}\"", mob);
+                getLogger().log(Level.WARNING, "为（可能已过时或无效）实体类型添加动力刷怪笼时发生错误 \"{0}\"", mob);
             }
             catch (Exception x) {
-                getLogger().log(Level.SEVERE, x, () -> "An Error has occured while adding an Electric Spawner for the EntityType \"" + mob + "\"");
+                getLogger().log(Level.SEVERE, x, () -> "为EntityType添加动力刷怪笼时发生错误  \"" + mob + "\"");
             }
         }
 
